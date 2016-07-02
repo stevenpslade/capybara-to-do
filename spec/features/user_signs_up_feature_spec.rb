@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature 'User signs up' do
+
   context 'From the homepage' do
 
     it 'clicks sign up and goes to sign up page' do
@@ -18,11 +19,10 @@ feature 'User signs up' do
       fill_in('user_email', with: 'stevenpslade@gmail.com')
       fill_in('user_password', with: 'password')
       fill_in('user_password_confirmation', with: 'password')
-
-      click_on('Submit')
-
+      click_on('Sign up')
       expect(page).to have_current_path('/')
-      expect(page).to have_content('You have successfully signed up.')
+      expect(page).to have_content('Welcome! You have signed up successfully.')
+      expect(page).to have_content('You are signed in.')
     end
 
   end
