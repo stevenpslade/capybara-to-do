@@ -11,12 +11,18 @@ feature 'User logs in' do
     end
 
     it 'should complete log in fields' do
+      user = User.create(:email    => "stevenpslade@gmail.com", :password => "password")
+
       visit(user_session_path)
-      fill_in('user_email', with: 'stevenpslade@gmail.com')
-      fill_in('user_password', with: 'password')
+
+      within('#new_user') do
+        fill_in('Email', with: 'stevenpslade@gmail.com')
+        fill_in('Password', with: 'password')
+      end
+
       click_on('Log in')
       expect(page).to have_current_path('/')
-      expect(page).to have_content('You are signed in.')
+      expect(page).to have_content('Signed in successfully.')
     end
 
   end
