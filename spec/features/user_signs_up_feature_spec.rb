@@ -16,13 +16,13 @@ feature 'User signs up' do
 
     it 'fills/completes sign up form' do
       visit(new_user_registration_path)
-      fill_in('user_email', with: 'stevenpslade@gmail.com')
+      fill_in('user_email', with: 'tester@example.com')
       fill_in('user_password', with: 'password')
       fill_in('user_password_confirmation', with: 'password')
       click_on('Sign up')
       expect(page).to have_current_path('/')
       expect(page).to have_content('Welcome! You have signed up successfully.')
-      expect(page).to have_content('You are signed in.')
+      expect(page).to have_content('Log out')
     end
 
   end
