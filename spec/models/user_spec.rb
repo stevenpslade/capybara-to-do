@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  describe "active record associations between user and list" do
+  describe "active record associations between user and list model" do
 
     context "a list is created" do
 
@@ -13,6 +13,7 @@ RSpec.describe User, type: :model do
 
       it "should belong to a user" do
         # expect foreign key on @list to be user's id (4)
+        expect(@list.user_id).to eql(4)
       end
 
     end
@@ -27,6 +28,7 @@ RSpec.describe User, type: :model do
 
       it "should have many lists" do
         # expect @user.lists to have 2 lists
+        expect(@user.lists.size).to eql(2)
       end
 
     end
