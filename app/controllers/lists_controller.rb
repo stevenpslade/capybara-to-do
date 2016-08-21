@@ -4,6 +4,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @tasks = Task.where(list_id: @list.id)
   end
 
   def new
