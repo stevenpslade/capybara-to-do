@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
     context "a list is created" do
 
       before :all do
-        @user = User.create!(email: "tester@example.com", password: "password")
+        @user = create(:user)
         @list = @user.lists.create(title: "First List")
       end
 
@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
     context "a user creates lists" do
 
       before :all do
-        @user = User.create!(email: "tester2@example.com", password: "password")
+        @user = User.build(email: "tester2@example.com", password: "password")
         @list_one = @user.lists.create(title: "First List")
         @list_two = @user.lists.create(title: "Another List")
       end
