@@ -7,13 +7,13 @@ RSpec.describe User, type: :model do
     context "a list is created" do
 
       before :all do
-        @user = User.create(id: 4, email: "steven@example.com", password: "password")
+        @user = User.create!(email: "tester@example.com", password: "password")
         @list = @user.lists.create(title: "First List")
       end
 
       it "should belong to a user" do
         # expect foreign key on @list to be user's id (4)
-        expect(@list.user_id).to eql(4)
+        expect(@list.user_id).to eql(@user.id)
       end
 
     end
@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
     context "a user creates lists" do
 
       before :all do
-        @user = User.create(id: 4, email: "steven@example.com", password: "password")
+        @user = User.create!(email: "tester2@example.com", password: "password")
         @list_one = @user.lists.create(title: "First List")
         @list_two = @user.lists.create(title: "Another List")
       end
