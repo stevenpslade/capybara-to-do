@@ -4,7 +4,7 @@ feature 'User creates a list'  do
   
   context 'from the home page' do
 
-    before :all do
+    before :each do
       user = User.create(:email    => "stevenpslade@gmail.com", :password => "password")
       log_in_with('stevenpslade@gmail.com', 'password')
     end
