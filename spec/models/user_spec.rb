@@ -16,18 +16,8 @@ RSpec.describe User, type: :model do
         expect(@list.user_id).to eql(@user.id)
       end
 
-    end
-
-    context "a user creates lists" do
-
-      before :all do
-        @user = User.build(email: "tester2@example.com", password: "password")
-        @list_one = @user.lists.create(title: "First List")
-        @list_two = @user.lists.create(title: "Another List")
-      end
-
       it "should have many lists" do
-        # expect @user.lists to have 2 lists
+        @list_two = @user.lists.create(title: "Another List")
         expect(@user.lists.size).to eql(2)
       end
 
