@@ -1,6 +1,9 @@
 class ListsController < ApplicationController
 
+  skip_before_filter :authenticate_user!, only: [:index, :show]
+
   def show
+    @list = List.find(params[:id])
   end
 
   def new
@@ -8,6 +11,7 @@ class ListsController < ApplicationController
   end
 
   def create
+    params[:list][:user_id] = current_user.id
     @list = List.new(list_params)
 
     if @list.save
@@ -20,7 +24,7 @@ class ListsController < ApplicationController
   protected
 
   def list_params
-    params.require(:list).permit(:title)
+    params.require(:list).permit(:user_id, :title)
   end
 
 end
