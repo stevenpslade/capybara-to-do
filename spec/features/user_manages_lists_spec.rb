@@ -1,4 +1,4 @@
-require 'rails helper'
+require 'rails_helper'
 
 feature 'User manages lists' do
 
@@ -17,7 +17,7 @@ feature 'User manages lists' do
 
     it 'edits a list' do
       click_on('Edit List')
-      expect(page).to have_current_path(edit_list(@list))
+      expect(page).to have_current_path(edit_list_path(@list))
 
       fill_in('list_title', with: 'Edited List Title')
       click_on('Save')
