@@ -2,6 +2,10 @@ class ListsController < ApplicationController
 
   skip_before_filter :authenticate_user!, only: [:index, :show]
 
+  def index
+    @lists = List.all
+  end
+
   def show
     @list = List.find(params[:id])
     @tasks = Task.where(list_id: @list.id)
