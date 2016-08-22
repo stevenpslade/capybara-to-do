@@ -5,6 +5,11 @@ class TasksController < ApplicationController
     @task = @list.tasks.build
   end
 
+  def edit
+    @list = List.find(params[:list_id])
+    @task = @list.tasks.build
+  end
+
   def create
     @list = List.find(params[:list_id])
     @task = @list.tasks.build(task_params)
@@ -15,6 +20,13 @@ class TasksController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @list = List.find(params[:list_id])
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to @list, notice: 'Task successfully deleted.'
   end
 
   protected

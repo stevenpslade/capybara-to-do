@@ -6,5 +6,7 @@
 <ul>
   <% @tasks.each do |task| %>
     <li><%= task.description %></li>
+    <%= link_to 'Edit Task', edit_polymorphic_path([@list, task]) %>
+    <%= link_to 'Delete Task', [@list, task], method: :delete %>
   <% end %>
 </ul>
