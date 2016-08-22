@@ -1,28 +1,15 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple Rails To Do app built using a TDD approach. I wanted to become more familiar with feature testing using Capybara (https://github.com/jnicklas/capybara).
 
-Things you may want to cover:
+My approach:
 
-* Ruby version
+* Write out what a feature was supposed to do. <em>ie. A user can add a task to a list.</em>
 
-* System dependencies
+* Write tests using Rspec and Capybara for the desired feature.
 
-* Configuration
+* Run tests and build out code based off error messages. <em>i.e. No controller for Lists (so we add a Lists controller).</em>
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* End result is various passing tests for the core features of the To Do List app along with the working code to have the app running.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
