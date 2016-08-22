@@ -6,6 +6,7 @@ feature 'User manages lists' do
 
     before :all do
       @list = List.create(:title => 'Another To Do List')
+      @tasks = @list.tasks.create([{ :description => 'finish stuff'}, { :description => 'do things'}])
     end
 
     before :each do
@@ -28,6 +29,10 @@ feature 'User manages lists' do
     it 'deletes a list' do
       click_on('Delete List')
       expect(page).to have_content('List successfully deleted.')
+    end
+
+    it 'associated tasks are deleted with list' do
+      expect{ @list.destroy }.to change{Task.count}.by(-2)
     end
 
   end
