@@ -1,3 +1,11 @@
+<% if !current_user %>
+  <%= link_to 'Sign Up', new_user_registration_path %>
+  <%= link_to 'Log in', user_session_path %>
+<% else %>
+  <%= link_to 'Add List', new_list_path %>
+ <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+<% end %>
+
 <h2>All Lists</h2>
 <ul>
   <% @lists.each do |list| %>

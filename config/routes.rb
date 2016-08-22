@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
 
-  root 'users#index'
+  root 'lists#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
