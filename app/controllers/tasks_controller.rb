@@ -7,7 +7,7 @@ class TasksController < ApplicationController
 
   def edit
     @list = List.find(params[:list_id])
-    @task = @list.tasks.build
+    @task = Task.find(params[:id])
   end
 
   def create
@@ -19,6 +19,17 @@ class TasksController < ApplicationController
       redirect_to @list, notice: 'Task successfully created'
     else
       render :new
+    end
+  end
+
+  def update
+    @list = List.find(params[:list_id])
+    @task = Task.find(params[:id])
+
+    if @task.update_attributes(task_params)
+      redirect_to list_path(@list)
+    else
+      render :edit
     end
   end
 
