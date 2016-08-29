@@ -2,6 +2,8 @@
 
 A simple Rails To Do app built using a TDD approach. I wanted to become more familiar with feature testing using Capybara (https://github.com/jnicklas/capybara).
 
+Blog post about my TDD experience: https://medium.com/@stevenpslade/nobody-told-me-how-fun-tdd-was-eaf5a25fed07#.wkun1nqr3
+
 My approach:
 
 * Write out what a feature was supposed to do. <em>ie. A user can add a task to a list.</em>
